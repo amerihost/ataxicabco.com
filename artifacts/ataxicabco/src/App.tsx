@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
-import { Link, Route, Switch, Router as WouterRouter } from "wouter";
+import { Link, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
 
 const PHONE = "843-575-5000";
 const EMAIL = "happycabco@gmail.com";
@@ -262,6 +262,7 @@ function Footer() {
         <div>
           <p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#f8d34e]">Explore</p>
           <div className="mt-4 flex flex-col items-start gap-3 text-sm text-[#d6e5d9]">
+            <Link href="/" data-testid="link-footer-home" className="hover:text-[#f8d34e]">Home</Link>
             <Link href="/airport/" data-testid="link-footer-airport" className="hover:text-[#f8d34e]">Airport service</Link>
             <Link href="/reservations/" data-testid="link-footer-reservations" className="hover:text-[#f8d34e]">Reservations</Link>
             <Link href="/contact/" data-testid="link-footer-contact" className="hover:text-[#f8d34e]">Contact</Link>
@@ -862,9 +863,21 @@ function NotFound() {
   );
 }
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  const pathname = location.split(/[?#]/, 1)[0];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function Router() {
   return (
     <Layout>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/airport" component={AirportPage} />
