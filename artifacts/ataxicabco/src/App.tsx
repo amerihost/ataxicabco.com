@@ -387,7 +387,7 @@ function Home() {
               <span className="h-2 w-2 rounded-full bg-[#4e8585]" /> Taxi service · Beaufort, SC
             </div>
             <h1 className="max-w-xl font-serif text-[clamp(3.2rem,11vw,6.7rem)] font-bold leading-[.88] tracking-[-.065em]">A ride that starts with a hello.</h1>
-            <p className="mt-7 max-w-lg text-lg leading-8 text-[#527477]">A Happy Taxi Cab Co. is your straightforward starting point for getting around Beaufort, the Lowcountry, and the Sea Islands.</p>
+            <p className="lead-copy mt-7 max-w-lg text-[#527477]">A Happy Taxi Cab Co. is your straightforward starting point for getting around Beaufort, the Lowcountry, and the Sea Islands.</p>
             <div className="mt-8 flex flex-col gap-3 min-[430px]:flex-row">
               <ButtonLink href={`tel:${PHONE}`} variant="yellow" className="w-full min-[430px]:w-auto">Call now <Phone size={16} /></ButtonLink>
               <ButtonLink href="/reservations/" variant="dark" className="w-full min-[430px]:w-auto">Reserve a ride <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></ButtonLink>
@@ -514,7 +514,7 @@ function PageIntro({ eyebrow, title, body, children }: { eyebrow: string; title:
         <div className="page-enter">
           <p className="font-mono text-[.66rem] font-bold uppercase tracking-[.2em] text-[#4e8585]">{eyebrow}</p>
           <h1 className="mt-4 max-w-3xl font-serif text-[clamp(3rem,8vw,5.7rem)] font-bold leading-[.9] tracking-[-.065em]">{title}</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#527477]">{body}</p>
+          <p className="lead-copy mt-6 max-w-2xl text-[#527477]">{body}</p>
         </div>
         {children && <div className="page-enter delay-1">{children}</div>}
       </div>

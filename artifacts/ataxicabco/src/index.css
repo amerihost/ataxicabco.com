@@ -321,6 +321,15 @@
   }
 }
 
+@layer components {
+  .lead-copy {
+    font-family: var(--app-font-serif);
+    font-size: clamp(1.125rem, calc(1rem + 0.52vw), 1.4375rem);
+    font-weight: 600;
+    line-height: 1.45;
+  }
+}
+
 /**
  * Using the elevate system.
  * Automatic contrast adjustment.
