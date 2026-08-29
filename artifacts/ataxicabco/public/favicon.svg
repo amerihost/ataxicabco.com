@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>A Happy Taxi Cab Co.</title>
+  <rect width="64" height="64" rx="16" fill="#142b46"/>
+  <path d="M14 34.5 18.4 22c.8-2.2 2.9-3.7 5.3-3.7h16.6c2.4 0 4.5 1.5 5.3 3.7L50 34.5v11.2c0 1.5-1.2 2.7-2.7 2.7h-3.1a2.7 2.7 0 0 1-2.7-2.7v-1.3H22.5v1.3a2.7 2.7 0 0 1-2.7 2.7h-3.1a2.7 2.7 0 0 1-2.7-2.7V34.5Z" fill="#f7c948"/>
+  <path d="m22 23.2-2.3 7h24.6l-2.3-7a2 2 0 0 0-1.9-1.4H23.9a2 2 0 0 0-1.9 1.4Z" fill="#fff4cf"/>
+  <circle cx="22.2" cy="38.7" r="3.1" fill="#142b46"/>
+  <circle cx="41.8" cy="38.7" r="3.1" fill="#142b46"/>
+  <path d="M26.5 17.8 29 12h6l2.5 5.8" fill="none" stroke="#f7c948" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
