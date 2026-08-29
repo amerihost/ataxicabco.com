@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -141,9 +141,9 @@
   --chart-4: 25 64% 60%;
   --chart-5: 137 23% 48%;
 
-  --app-font-sans: 'DM Sans', sans-serif;
-  --app-font-serif: 'Fraunces', serif;
-  --app-font-mono: 'Space Mono', monospace;
+  --app-font-sans: 'Montserrat', sans-serif;
+  --app-font-serif: 'Montserrat', sans-serif;
+  --app-font-mono: 'Montserrat', sans-serif;
   --radius: 0.5rem; /* 8px */
   --shadow-2xs: 0px 2px 0px 0px hsl(213 31% 15% / 0.04);
   --shadow-xs: 0px 2px 0px 0px hsl(213 31% 15% / 0.04);
@@ -323,10 +323,22 @@
 
 @layer components {
   .lead-copy {
-    font-family: var(--app-font-serif);
-    font-size: clamp(1.125rem, calc(1rem + 0.52vw), 1.4375rem);
-    font-weight: 600;
-    line-height: 1.45;
+    font-family: var(--app-font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 640px) {
+    .lead-copy {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lead-copy {
+      font-size: 16px;
+    }
   }
 }
 
