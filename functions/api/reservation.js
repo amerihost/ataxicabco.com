@@ -229,7 +229,7 @@ export async function onRequestPost({ request, env }) {
   recentSubmissions.set(submission.submissionId, now);
 
   try {
-    const cc = clean(env.RESERVATION_CC_EMAIL, 512)
+    const bcc = clean(env.RESERVATION_BCC_EMAIL, 512)
       .split(",")
       .map((address) => address.trim())
       .filter(Boolean);
@@ -243,7 +243,7 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify({
         from,
         to: [to],
-        ...(cc.length > 0 ? { cc } : {}),
+        ...(bcc.length > 0 ? { bcc } : {}),
         reply_to: submission.email,
         subject: `Reservation request from ${submission.name}`,
         text: emailText(submission),
