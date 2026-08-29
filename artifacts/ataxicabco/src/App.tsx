@@ -211,7 +211,7 @@ function Header() {
             <BrandMark />
           </Link>
           <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
-            {links.slice(1).map(([href, label]) => (
+            {links.map(([href, label]) => (
               <Link key={href} href={href} data-testid={`link-nav-${label.toLowerCase().replaceAll(" ", "-")}`} className="text-sm font-semibold text-[#31505c] transition-colors hover:text-[#172536]">
                 {label}
               </Link>
@@ -254,7 +254,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="bg-[#172536] text-[#fbf6e9]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.3fr_.7fr_.8fr] lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.9fr_.9fr] lg:px-8 lg:py-16">
         <div>
           <BrandMark dark />
           <p className="mt-6 max-w-sm text-sm leading-7 text-[#bed2c8]">A Happy Taxi Cab Co. connects Beaufort, the Lowcountry, and the Sea Islands with straightforward taxi service.</p>
@@ -273,6 +273,13 @@ function Footer() {
             <a href={`tel:${PHONE}`} data-testid="link-footer-phone" className="hover:text-[#f8d34e]">{PHONE}</a>
             <a href={`mailto:${EMAIL}`} data-testid="link-footer-email" className="break-all hover:text-[#f8d34e]">{EMAIL}</a>
             <span>Beaufort, South Carolina</span>
+          </div>
+        </div>
+        <div>
+          <p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#f8d34e]">You can also visit us at:</p>
+          <div className="mt-4 flex flex-col items-start gap-3 text-sm text-[#d6e5d9]">
+            <a href="http://www.happycabco.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-happy-cab-co" className="rounded-md py-1 hover:text-[#f8d34e]">Happy Cab Co.</a>
+            <a href="http://www.adrtaxi.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-adr-taxi" className="rounded-md py-1 hover:text-[#f8d34e]">ADR Taxi</a>
           </div>
         </div>
       </div>
