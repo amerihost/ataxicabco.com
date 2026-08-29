@@ -115,6 +115,7 @@ type FormValues = {
   airportArrivalTime: string;
   roundTrip: "Yes" | "No";
   payment: string;
+  comments: string;
   website: string;
 };
 
@@ -132,6 +133,7 @@ const initialForm: FormValues = {
   airportArrivalTime: "",
   roundTrip: "No",
   payment: "No preference",
+  comments: "",
   website: "",
 };
 
@@ -701,6 +703,7 @@ function ReservationsPage() {
           airportArrivalTime: values.airportArrivalTime,
           roundTrip: values.roundTrip,
            paymentPreference: values.payment === "Card" ? "Credit card" : values.payment === "No preference" ? "Undecided" : values.payment,
+            comments: values.comments.trim(),
            submissionId: submissionId.current,
            website: values.website,
            turnstileToken,
@@ -770,6 +773,10 @@ function ReservationsPage() {
                   </div>
                 </div>
                 <div className="sm:col-span-2"><label htmlFor="reservation-payment" className="mb-2 block text-sm font-bold">Preferred payment method <span className="font-normal text-[#527477]">(preference only)</span></label><select id="reservation-payment" name="payment" value={values.payment} onChange={(event) => update("payment", event.target.value)} data-testid="select-payment" className="min-h-12 w-full appearance-none rounded-xl border border-[#b6c5bb] bg-[#fbf6e9] px-4 text-base text-[#172536]"><option>No preference</option><option>Cash</option><option>Card</option></select><p className="mt-2 text-xs leading-5 text-[#527477]">Please do not enter card numbers or other financial details.</p></div>
+                  <div className="sm:col-span-2">
+                    <label htmlFor="reservation-comments" className="mb-2 block text-sm font-bold">Comments</label>
+                    <textarea id="reservation-comments" name="comments" value={values.comments} onChange={(event) => update("comments", event.target.value)} maxLength={1000} rows={5} placeholder="Add any additional trip details or special instructions" data-testid="textarea-comments" className="min-h-32 w-full resize-y rounded-xl border border-[#b6c5bb] bg-[#fbf6e9] px-4 py-3 text-base text-[#172536] placeholder:text-[#8ba09a] focus:border-[#4e8585]" />
+                  </div>
               </div>
             </div>
             {turnstileSiteKey && (

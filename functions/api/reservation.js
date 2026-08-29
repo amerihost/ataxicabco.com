@@ -48,6 +48,7 @@ function validateSubmission(input) {
     airportArrivalTime: clean(input.airportArrivalTime, 5),
     roundTrip: clean(input.roundTrip, 3),
     paymentPreference: clean(input.paymentPreference, 60),
+    comments: clean(input.comments, 1000),
   };
 
   const required = [
@@ -118,6 +119,9 @@ function emailText(submission) {
     `Destination address: ${submission.destinationAddress}`,
     `Round trip: ${submission.roundTrip}`,
     `Preferred payment method: ${submission.paymentPreference || "Not provided"} (preference only)`,
+    "",
+    "COMMENTS",
+    `Comments: ${submission.comments || "None provided"}`,
   ];
 
   if (
