@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import {
   ArrowRight,
   ArrowUpRight,
-  CalendarDays,
   Check,
   Mail,
   MapPin,
@@ -13,7 +12,7 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
-import { Link, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
+import { Link, Redirect, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
 
 const PHONE = "843-575-5000";
 const EMAIL = "happycabco@gmail.com";
@@ -195,7 +194,6 @@ function Header() {
   const links = [
     ["/", "Home"],
     ["/airport/", "Airport service"],
-    ["/reservations/", "Reservations"],
     ["/contact/", "Contact"],
   ];
   return (
@@ -219,7 +217,7 @@ function Header() {
               </Link>
             ))}
             <ButtonLink href={`tel:${PHONE}`} variant="yellow" className="min-h-10 px-4 py-2">
-              Call now <ArrowUpRight size={16} />
+              Operator on duty 24/7 <ArrowUpRight size={16} />
             </ButtonLink>
           </nav>
           <button
@@ -243,7 +241,7 @@ function Header() {
                 </Link>
               ))}
               <a href={`tel:${PHONE}`} data-testid="link-mobile-call" className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[#f8d34e] px-4 py-3 font-bold text-[#172536]">
-                Call now <ArrowUpRight size={16} />
+                Operator on duty 24/7 <ArrowUpRight size={16} />
               </a>
             </div>
           </nav>
@@ -258,7 +256,10 @@ function Footer() {
     <footer className="bg-[#172536] text-[#fbf6e9]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.9fr_.9fr] lg:px-8 lg:py-16">
         <div>
-          <BrandMark dark />
+          <div className="inline-flex flex-col items-start rounded-2xl bg-[#fbf6e9] p-3">
+            <img src="/images/logo-mark.png" alt="" className="h-20 w-auto sm:h-24" />
+            <img src="/images/logo-wordmark.png" alt="A Happy Taxi Cab Co." className="mt-2 h-auto w-[min(100%,18rem)]" />
+          </div>
           <p className="mt-6 max-w-sm text-sm leading-7 text-[#bed2c8]">A Happy Taxi Cab Co. connects Beaufort, the Lowcountry, and the Sea Islands with straightforward taxi service.</p>
         </div>
         <div>
@@ -266,7 +267,6 @@ function Footer() {
           <div className="mt-4 flex flex-col items-start gap-3 text-sm text-[#d6e5d9]">
             <Link href="/" data-testid="link-footer-home" className="hover:text-[#f8d34e]">Home</Link>
             <Link href="/airport/" data-testid="link-footer-airport" className="hover:text-[#f8d34e]">Airport service</Link>
-            <Link href="/reservations/" data-testid="link-footer-reservations" className="hover:text-[#f8d34e]">Reservations</Link>
             <Link href="/contact/" data-testid="link-footer-contact" className="hover:text-[#f8d34e]">Contact</Link>
           </div>
         </div>
@@ -377,7 +377,7 @@ function ArchiveFleetSection() {
 function Home() {
   usePageMeta(
     "A Happy Taxi Cab Co. | Beaufort Taxi Service",
-    "Taxi service for Beaufort, the Lowcountry, and Sea Islands of South Carolina. Call or reserve a ride with A Happy Taxi Cab Co.",
+    "Taxi service for Beaufort, the Lowcountry, and Sea Islands of South Carolina. Call A Happy Taxi Cab Co. for service.",
     "/",
   );
 
@@ -393,7 +393,6 @@ function Home() {
             <p className="lead-copy mt-7 max-w-lg text-[#527477]">A Happy Taxi Cab Co. is your straightforward starting point for getting around Beaufort, the Lowcountry, and the Sea Islands.</p>
             <div className="mt-8 flex flex-col gap-3 min-[430px]:flex-row">
               <ButtonLink href={`tel:${PHONE}`} variant="yellow" className="w-full min-[430px]:w-auto">Call now <Phone size={16} /></ButtonLink>
-              <ButtonLink href="/reservations/" variant="dark" className="w-full min-[430px]:w-auto">Reserve a ride <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" /></ButtonLink>
             </div>
             <div className="mt-7 flex items-start gap-3 text-sm text-[#527477]">
               <ShieldCheck size={18} className="mt-0.5 shrink-0 text-[#4e8585]" />
@@ -409,7 +408,6 @@ function Home() {
           <SectionHeading eyebrow="Start here" title="Choose the kind of ride you need." body="No maze of menus. Pick a next step and we’ll take it from there." />
           <div className="grid gap-4 sm:grid-cols-2">
             <ActionCard icon={<Phone />} title="Call now" body={PHONE} href={`tel:${PHONE}`} accent />
-            <ActionCard icon={<CalendarDays />} title="Reserve a ride" body="Send trip details online" href="/reservations/" />
             <ActionCard icon={<Plane />} title="Airport service" body="South Carolina destinations" href="/airport/" />
             <ActionCard icon={<Mail />} title="Contact" body="Questions or service area" href="/contact/" />
           </div>
@@ -418,7 +416,7 @@ function Home() {
 
       <section className="bg-[#e6eee5]">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[.8fr_1.2fr] lg:items-end lg:px-8">
-          <SectionHeading eyebrow="The easy part" title="Three details. One clear request." body="A reservation works best when we know the essentials up front." />
+          <SectionHeading eyebrow="The easy part" title="Three details. One clear request." body="A clear trip starts when we know the essentials up front." />
           <div className="grid gap-3 sm:grid-cols-3">
             {[
               ["01", "Where", "Your pickup and destination addresses."],
@@ -476,7 +474,7 @@ function AreaSection() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-        <SectionHeading eyebrow="Service references" title="Across the Lowcountry and out to the islands." body="These are the communities and Sea Islands referenced for service. Call or send a reservation with your exact route." />
+        <SectionHeading eyebrow="Service references" title="Across the Lowcountry and out to the islands." body="These are the communities and Sea Islands referenced for service. Call with your exact route." />
         <div>
           <div className="flex flex-wrap gap-2">
             {serviceAreas.map((area) => <span key={area} data-testid={`text-service-area-${area.toLowerCase().replaceAll(" ", "-")}`} className="rounded-full border border-[#b6c5bb] bg-[#f1f5ed] px-3 py-2 text-sm text-[#31505c]">{area}</span>)}
@@ -538,7 +536,7 @@ function AirportPage() {
         <div className="rounded-[1.8rem] bg-[#31505c] p-6 text-[#fbf6e9] sm:p-8">
           <Plane className="text-[#f8d34e]" size={27} />
           <p className="mt-6 font-serif text-2xl font-bold">Three airport references.</p>
-          <p className="mt-2 text-sm leading-6 text-[#c9d9ce]">Choose the airport you’re arriving at in your reservation details.</p>
+            <p className="mt-2 text-sm leading-6 text-[#c9d9ce]">Tell us which airport you’re arriving at when you call.</p>
         </div>
       </PageIntro>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
@@ -554,7 +552,7 @@ function AirportPage() {
       </section>
       <section className="bg-[#e6eee5]">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_1fr] lg:px-8">
-          <SectionHeading eyebrow="What to include" title="A few flight details make the request clearer." body="The reservation form keeps airport information optional, so you can share only what applies to your trip." />
+          <SectionHeading eyebrow="What to include" title="A few flight details make the trip clearer." body="Sharing these details helps us understand the airport transportation you need." />
           <div className="space-y-3">
             {["Airline name", "Flight number", "Airport arrival time"].map((item) => <div key={item} className="flex items-center gap-4 rounded-2xl border border-[#c8d7cb] bg-[#fbf6e9] p-4"><span className="grid h-9 w-9 place-items-center rounded-full bg-[#f8d34e] font-mono text-xs text-[#172536]"><Check size={15} /></span><span className="font-semibold">{item}</span></div>)}
             <div className="mt-5 flex gap-3 border-l-2 border-[#4e8585] pl-4 text-sm leading-6 text-[#527477]"><ShieldCheck size={17} className="mt-1 shrink-0 text-[#4e8585]" /><p>Airport pickups are limited to South Carolina destinations. If you have a question about your route, call {PHONE}.</p></div>
@@ -567,7 +565,7 @@ function AirportPage() {
       </section>
       <section className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-7 px-4 py-16 sm:px-6 md:flex-row md:items-center lg:px-8">
         <div><p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#4e8585]">Ready when you are</p><h2 className="mt-2 font-serif text-3xl font-bold">Share your airport trip.</h2></div>
-        <ButtonLink href="/reservations/" variant="yellow">Reserve airport transportation <ArrowRight size={16} /></ButtonLink>
+        <ButtonLink href={`tel:${PHONE}`} variant="yellow">Call {PHONE} <Phone size={16} /></ButtonLink>
       </section>
     </>
   );
@@ -801,7 +799,7 @@ function ReservationsPage() {
 function ContactPage() {
   usePageMeta(
     "Contact | A Happy Taxi Cab Co.",
-    "Contact A Happy Taxi Cab Co. in Beaufort, South Carolina by phone or email about service areas, airport trips, and reservations.",
+    "Contact A Happy Taxi Cab Co. in Beaufort, South Carolina by phone or email about service areas and airport trips.",
     "/contact/",
   );
 
@@ -843,12 +841,6 @@ function ContactPage() {
         <SectionHeading eyebrow="A familiar ride" title="Keep the conversation simple." body="Call or email with the exact locations and timing for your trip. The original company vehicle photo below is included for client review." />
         <ArchivePhoto src="/images/archive/crownvic.jpg" alt="Green taxi marked Happy Taxi Cab Co. parked beneath trees." caption="Original vehicle photo from the company archive" imageClassName="aspect-[1.9]" />
       </section>
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid gap-8 rounded-[1.8rem] border border-[#d7dfd3] bg-[#f1f5ed] p-6 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div><p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#4e8585]">Prefer a form?</p><h2 className="mt-3 font-serif text-3xl font-bold">Send the trip details online.</h2><p className="mt-3 max-w-xl text-sm leading-6 text-[#527477]">The reservation form includes pickup, destination, timing, passenger count, and optional flight details.</p></div>
-          <ButtonLink href="/reservations/" variant="yellow">Make a reservation <ArrowRight size={16} /></ButtonLink>
-        </div>
-      </section>
     </>
   );
 }
@@ -881,6 +873,10 @@ function ScrollToTop() {
   return null;
 }
 
+function ReservationsRedirect() {
+  return <Redirect to="/" />;
+}
+
 function Router() {
   return (
     <Layout>
@@ -889,8 +885,8 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/airport" component={AirportPage} />
         <Route path="/airport/" component={AirportPage} />
-        <Route path="/reservations" component={ReservationsPage} />
-        <Route path="/reservations/" component={ReservationsPage} />
+        <Route path="/reservations" component={ReservationsRedirect} />
+        <Route path="/reservations/" component={ReservationsRedirect} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/contact/" component={ContactPage} />
         <Route component={NotFound} />
