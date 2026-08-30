@@ -136,12 +136,11 @@ const initialForm: FormValues = {
   website: "",
 };
 
-function BrandMark({ dark = false }: { dark?: boolean }) {
+function BrandMark() {
   return (
-    <span className={`flex items-center gap-3 ${dark ? "text-[#fbf6e9]" : "text-[#172536]"}`}>
-      <span className={`block shrink-0 overflow-hidden rounded-xl p-1 ${dark ? "bg-[#fbf6e9]" : "bg-white mix-blend-multiply"}`}>
-        <img src="/images/archive/logonew.jpg" alt="A Happy Taxi Cab Co." className="h-9 w-[194px] object-contain sm:h-10 sm:w-[220px]" />
-      </span>
+    <span className="flex items-center gap-2">
+      <img src="/images/logo-mark.png" alt="" className="h-12 w-auto shrink-0 sm:h-16 lg:h-20" />
+      <img src="/images/logo-wordmark.png" alt="" className="h-auto w-[10rem] sm:w-[14rem] lg:w-[17.5rem]" />
     </span>
   );
 }
@@ -255,12 +254,12 @@ function Footer() {
   return (
     <footer className="bg-[#172536] text-[#fbf6e9]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.9fr_.9fr] lg:px-8 lg:py-16">
-        <div>
-          <div className="inline-flex flex-col items-start rounded-2xl bg-[#fbf6e9] p-3">
-            <img src="/images/logo-mark.png" alt="" className="h-20 w-auto sm:h-24" />
-            <img src="/images/logo-wordmark.png" alt="A Happy Taxi Cab Co." className="mt-2 h-auto w-[min(100%,18rem)]" />
+        <div className="text-center">
+          <div className="flex flex-col items-center">
+            <img src="/images/logo-mark.png" alt="" className="h-24 w-auto sm:h-28" />
+            <img src="/images/logo-wordmark-footer.png" alt="A Happy Taxi Cab Co." className="mt-5 h-auto w-[min(100%,16rem)]" />
           </div>
-          <p className="mt-6 max-w-sm text-sm leading-7 text-[#bed2c8]">A Happy Taxi Cab Co. connects Beaufort, the Lowcountry, and the Sea Islands with straightforward taxi service.</p>
+          <p className="mx-auto mt-6 max-w-sm text-sm leading-7 text-[#bed2c8]">A Happy Taxi Cab Co. connects Beaufort, the Lowcountry, and the Sea Islands with straightforward taxi service.</p>
         </div>
         <div>
           <p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#f8d34e]">Explore</p>
@@ -283,6 +282,7 @@ function Footer() {
           <div className="mt-4 flex flex-col items-start gap-3 text-sm text-[#d6e5d9]">
             <a href="http://www.happycabco.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-happy-cab-co" className="rounded-md py-1 hover:text-[#f8d34e]">Happy Cab Co.</a>
             <a href="http://www.adrtaxi.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-adr-taxi" className="rounded-md py-1 hover:text-[#f8d34e]">ADR Taxi</a>
+            <a href="https://beauforttaxi.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-beaufort-taxi" className="rounded-md py-1 hover:text-[#f8d34e]">Beaufort Taxi</a>
           </div>
         </div>
       </div>
@@ -364,8 +364,8 @@ function ArchiveFleetSection() {
         <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-end lg:gap-20">
           <SectionHeading eyebrow="From the company archive" title="A look at the vehicles behind the service." body="These original vehicle photographs are preserved for client review. The images are shown as found, without invented model or year details." />
           <div className="grid gap-4 sm:grid-cols-3">
-            <ArchivePhoto src="/images/archive/impala.jpg" alt="Black sedan taxi with ADR Taxi markings." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
-            <ArchivePhoto src="/images/archive/cars.jpg" alt="Black sedan taxi with ADR Taxi markings parked beside a fence." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
+            <ArchivePhoto src="/images/archive/1000045361.jpg" alt="Green Happy Taxi Cab vehicle marked 321 on a wet road." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
+            <ArchivePhoto src="/images/archive/1000045362.jpg" alt="Two Happy Taxi Cab vehicles with smiley-face markings parked beside a building." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
             <ArchivePhoto src="/images/archive/cars1.jpg" alt="White taxis with A taxicab Co. markings." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
           </div>
         </div>
