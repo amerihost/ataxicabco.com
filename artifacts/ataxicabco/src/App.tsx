@@ -231,21 +231,25 @@ function Header() {
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
-        {menuOpen && (
-          <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-[#d7dfd3] bg-[#f1f5ed] px-4 py-4 lg:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col gap-1">
-              {links.map(([href, label]) => (
-                <Link key={href} href={href} data-testid={`link-mobile-${label.toLowerCase().replaceAll(" ", "-")}`} onClick={() => setMenuOpen(false)} className="rounded-xl px-3 py-3 text-base font-semibold text-[#172536] hover:bg-[#e1ebe1]">
-                  {label}
-                </Link>
-              ))}
-              <a href={`tel:${PHONE}`} data-testid="link-mobile-call" className="mt-2 flex items-center justify-center gap-2 rounded-full bg-[#f8d34e] px-4 py-3 font-bold text-[#172536]">
-                Operator on duty 24/7 <ArrowUpRight size={16} />
-              </a>
-            </div>
-          </nav>
-        )}
       </header>
+      <div className="border-b border-[#d7dfd3] bg-[#f1f5ed] px-4 py-3 lg:hidden">
+        <div className="mx-auto max-w-7xl">
+          <a href={`tel:${PHONE}`} data-testid="link-mobile-call" className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#f8d34e] px-4 py-3 font-bold text-[#172536]">
+            Operator on duty 24/7 <ArrowUpRight size={16} />
+          </a>
+        </div>
+      </div>
+      {menuOpen && (
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-b border-[#d7dfd3] bg-[#f1f5ed] px-4 py-4 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-1">
+            {links.map(([href, label]) => (
+              <Link key={href} href={href} data-testid={`link-mobile-${label.toLowerCase().replaceAll(" ", "-")}`} onClick={() => setMenuOpen(false)} className="rounded-xl px-3 py-3 text-base font-semibold text-[#172536] hover:bg-[#e1ebe1]">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
     </>
   );
 }
@@ -394,9 +398,6 @@ function Home() {
             </div>
             <h1 className="max-w-xl font-serif text-[clamp(3.2rem,11vw,6.7rem)] font-bold leading-[.88] tracking-[-.065em]">A ride that starts with a hello.</h1>
             <p className="lead-copy mt-7 max-w-lg text-[#527477]">A Happy Taxi Cab Co. is your straightforward starting point for getting around Beaufort, the Lowcountry, and the Sea Islands.</p>
-            <div className="mt-8 flex flex-col gap-3 min-[430px]:flex-row">
-              <ButtonLink href={`tel:${PHONE}`} variant="yellow" className="w-full min-[430px]:w-auto">Call now <Phone size={16} /></ButtonLink>
-            </div>
             <div className="mt-7 flex items-start gap-3 text-sm text-[#527477]">
               <ShieldCheck size={18} className="mt-0.5 shrink-0 text-[#4e8585]" />
               <span>Tell us where you’re going, when you need to go, and how to reach you.</span>
