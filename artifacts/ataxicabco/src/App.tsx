@@ -303,7 +303,7 @@ function Layout({ children }: { children: ReactNode }) {
 
 function SectionHeading({ eyebrow, title, body, light = false }: { eyebrow: string; title: string; body?: string; light?: boolean }) {
   return (
-    <div className={light ? "text-[#fbf6e9]" : "text-[#172536]"}>
+    <div className={`min-w-0 ${light ? "text-[#fbf6e9]" : "text-[#172536]"}`}>
       <p className={`font-mono text-[.66rem] font-bold uppercase tracking-[.2em] ${light ? "text-[#f8d34e]" : "text-[#4e8585]"}`}>{eyebrow}</p>
       <h2 className="mt-3 max-w-2xl font-serif text-4xl font-bold leading-[.98] tracking-[-.04em] sm:text-5xl">{title}</h2>
       {body && <p className={`mt-5 max-w-xl text-base leading-7 ${light ? "text-[#c9d9ce]" : "text-[#527477]"}`}>{body}</p>}
@@ -317,20 +317,23 @@ function ArchivePhoto({
   caption,
   className = "",
   imageClassName = "",
+  fit = "cover",
 }: {
   src: string;
   alt: string;
   caption?: string;
   className?: string;
   imageClassName?: string;
+  fit?: "cover" | "contain";
 }) {
   const webpSrc = src.replace("/archive/", "/archive/web/").replace(/\.jpg$/, ".webp");
+  const fitClassName = fit === "contain" ? "object-contain" : "object-cover";
   return (
     <figure className={className}>
       <div className="overflow-hidden rounded-[1.5rem] border border-[#b6c5bb] bg-[#e6eee5]">
         <picture>
           <source srcSet={webpSrc} type="image/webp" />
-          <img src={src} alt={alt} loading="lazy" className={`block h-full w-full object-cover ${imageClassName}`} />
+          <img src={src} alt={alt} loading="lazy" className={`block h-full w-full ${fitClassName} object-center ${imageClassName}`} />
         </picture>
       </div>
       {caption && <figcaption className="mt-3 font-mono text-[.59rem] uppercase tracking-[.13em] text-[#527477]">{caption}</figcaption>}
@@ -364,8 +367,8 @@ function ArchiveFleetSection() {
         <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-end lg:gap-20">
           <SectionHeading eyebrow="From the company archive" title="A look at the vehicles behind the service." body="These original vehicle photographs are preserved for client review. The images are shown as found, without invented model or year details." />
           <div className="grid gap-4 sm:grid-cols-3">
-            <ArchivePhoto src="/images/archive/1000045361.jpg" alt="Green Happy Taxi Cab vehicle marked 321 on a wet road." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
-            <ArchivePhoto src="/images/archive/1000045362.jpg" alt="Two Happy Taxi Cab vehicles with smiley-face markings parked beside a building." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
+            <ArchivePhoto src="/images/archive/1000045361.jpg" alt="Green Happy Taxi Cab vehicle marked 321 on a wet road." caption="Original vehicle photo" fit="contain" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
+            <ArchivePhoto src="/images/archive/1000045362.jpg" alt="Two Happy Taxi Cab vehicles with smiley-face markings parked beside a building." caption="Original vehicle photo" fit="contain" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
             <ArchivePhoto src="/images/archive/cars1.jpg" alt="White taxis with A taxicab Co. markings." caption="Original vehicle photo" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
           </div>
         </div>
@@ -406,7 +409,7 @@ function Home() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
           <SectionHeading eyebrow="Start here" title="Choose the kind of ride you need." body="No maze of menus. Pick a next step and we’ll take it from there." />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid min-w-0 gap-4 sm:grid-cols-2">
             <ActionCard icon={<Phone />} title="Call now" body={PHONE} href={`tel:${PHONE}`} accent />
             <ActionCard icon={<Plane />} title="Airport service" body="South Carolina destinations" href="/airport/" />
             <ActionCard icon={<Mail />} title="Contact" body="Questions or service area" href="/contact/" />
@@ -467,7 +470,7 @@ function ActionCard({ icon, title, body, href, accent = false }: { icon: ReactNo
       <ArrowUpRight size={18} className="ml-auto shrink-0 text-[#527477]" />
     </>
   );
-  return external ? <a href={href} data-testid={`link-action-${title.toLowerCase().replaceAll(" ", "-")}`} className="group flex min-h-[116px] items-center gap-4 rounded-[1.4rem] border border-[#d7dfd3] bg-[#fbf6e9] p-5 transition-transform hover:-translate-y-1">{content}</a> : <Link href={href} data-testid={`link-action-${title.toLowerCase().replaceAll(" ", "-")}`} className="group flex min-h-[116px] items-center gap-4 rounded-[1.4rem] border border-[#d7dfd3] bg-[#fbf6e9] p-5 transition-transform hover:-translate-y-1">{content}</Link>;
+  return external ? <a href={href} data-testid={`link-action-${title.toLowerCase().replaceAll(" ", "-")}`} className="group flex min-w-0 min-h-[116px] items-center gap-4 rounded-[1.4rem] border border-[#d7dfd3] bg-[#fbf6e9] p-5 transition-transform hover:-translate-y-1">{content}</a> : <Link href={href} data-testid={`link-action-${title.toLowerCase().replaceAll(" ", "-")}`} className="group flex min-w-0 min-h-[116px] items-center gap-4 rounded-[1.4rem] border border-[#d7dfd3] bg-[#fbf6e9] p-5 transition-transform hover:-translate-y-1">{content}</Link>;
 }
 
 function AreaSection() {
