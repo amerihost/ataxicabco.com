@@ -257,7 +257,7 @@ function Header() {
 function Footer() {
   return (
     <footer className="bg-[#172536] text-[#fbf6e9]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.9fr_.9fr] lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.9fr_.9fr] lg:px-8 lg:py-12">
         <div className="text-center">
           <div className="flex flex-col items-center">
             <img src="/images/logo-mark.png" alt="" className="h-24 w-auto sm:h-28" />
@@ -290,7 +290,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-[#314250] px-4 py-5 text-center font-mono text-[.61rem] uppercase tracking-[.13em] text-[#8eaba3]">A Happy Taxi Cab Co. · Serving the Lowcountry and Sea Islands</div>
+      <div className="border-t border-[#314250] px-4 py-4 text-center font-mono text-[.61rem] uppercase tracking-[.13em] text-[#8eaba3]">A Happy Taxi Cab Co. · Serving the Lowcountry and Sea Islands</div>
     </footer>
   );
 }
@@ -367,8 +367,8 @@ function ArchiveHero() {
 function ArchiveFleetSection() {
   return (
     <section className="bg-[#f1f5ed]">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-end lg:gap-20">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end lg:gap-14">
           <SectionHeading eyebrow="From the company archive" title="A look at the vehicles behind the service." body="These original vehicle photographs are preserved for client review. The images are shown as found, without invented model or year details." />
           <div className="grid gap-4 sm:grid-cols-3">
             <ArchivePhoto src="/images/archive/1000045361.jpg" alt="Green Happy Taxi Cab vehicle marked 321 on a wet road." caption="Original vehicle photo" fit="contain" imageClassName="aspect-[1.7] sm:aspect-[.8] lg:aspect-[.95]" />
@@ -391,7 +391,7 @@ function Home() {
   return (
     <>
       <section className="paper-grid border-b border-[#d7dfd3]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-20 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:gap-20 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-10 pt-10 sm:px-6 md:pb-14 md:pt-14 lg:pb-16 lg:pt-16 lg:grid-cols-[.95fr_1.05fr] lg:items-center lg:gap-14 lg:px-8">
           <div className="page-enter">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#b6c5bb] bg-[#fbf6e9] px-3 py-2 font-mono text-[.61rem] font-bold uppercase tracking-[.15em] text-[#527477]">
               <span className="h-2 w-2 rounded-full bg-[#4e8585]" /> Taxi service · Beaufort, SC
@@ -407,8 +407,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[.68fr_1.32fr] lg:gap-20">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[.68fr_1.32fr] lg:gap-14">
           <SectionHeading eyebrow="Start here" title="Choose the kind of ride you need." body="No maze of menus. Pick a next step and we’ll take it from there." />
           <div className="grid min-w-0 gap-4 sm:grid-cols-2">
             <ActionCard icon={<Phone />} title="Call now" body={PHONE} href={`tel:${PHONE}`} accent />
@@ -419,7 +419,7 @@ function Home() {
       </section>
 
       <section className="bg-[#e6eee5]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[.8fr_1.2fr] lg:items-end lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[.8fr_1.2fr] lg:items-end lg:px-8 lg:py-16">
           <SectionHeading eyebrow="The easy part" title="Three details. One clear request." body="A clear trip starts when we know the essentials up front." />
           <div className="grid gap-3 sm:grid-cols-3">
             {[
@@ -438,7 +438,7 @@ function Home() {
       </section>
 
       <section className="bg-[#31505c]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[1fr_.8fr] lg:items-center lg:px-8 lg:py-16">
           <SectionHeading light eyebrow="Airport transportation" title="Start at an airport. Arrive in South Carolina." body="Airport pickups are available for South Carolina destinations. Review the airports we reference and share the flight details that help us understand your trip." />
           <div className="lg:justify-self-end">
             <div className="rounded-[1.7rem] border border-[#628686] bg-[#264451] p-6 sm:p-8">
@@ -476,8 +476,8 @@ function ActionCard({ icon, title, body, href, accent = false }: { icon: ReactNo
 
 function AreaSection() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-16">
+      <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-12">
         <SectionHeading eyebrow="Service references" title="Across the Lowcountry and out to the islands." body="These are the communities and Sea Islands referenced for service. Call with your exact route." />
         <div>
           <div className="flex flex-wrap gap-2">
@@ -498,7 +498,7 @@ function AreaSection() {
 function ContactBand() {
   return (
     <section className="border-t border-[#d7dfd3] bg-[#f1f5ed]">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 py-14 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row md:py-12 md:items-center lg:px-8">
         <div>
           <p className="font-mono text-[.64rem] uppercase tracking-[.18em] text-[#4e8585]">Have a question?</p>
           <h2 className="mt-3 font-serif text-3xl font-bold tracking-[-.03em] sm:text-4xl">Let’s get the details right.</h2>
@@ -515,7 +515,7 @@ function ContactBand() {
 function PageIntro({ eyebrow, title, body, children, titleSizeClassName }: { eyebrow: string; title: string; body: string; children?: ReactNode; titleSizeClassName?: string }) {
   return (
     <section className="paper-grid border-b border-[#d7dfd3]">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1fr_.8fr] lg:items-end lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[1fr_.8fr] lg:gap-10 lg:py-16 lg:items-end lg:px-8">
         <div className="page-enter">
           <p className="font-mono text-[.66rem] font-bold uppercase tracking-[.2em] text-[#4e8585]">{eyebrow}</p>
           <h1 className={`mt-4 max-w-3xl font-serif ${titleSizeClassName ?? "text-[clamp(3rem,8vw,5.7rem)]"} font-bold leading-[.9] tracking-[-.065em]`}>{title}</h1>
@@ -543,19 +543,19 @@ function AirportPage() {
             <p className="mt-2 text-sm leading-6 text-[#c9d9ce]">Tell us which airport you’re arriving at when you call.</p>
         </div>
       </PageIntro>
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-16">
         <div className="grid gap-4 md:grid-cols-3">
           {airports.map((airport, index) => (
             <div key={airport} className="group relative overflow-hidden rounded-[1.5rem] border border-[#d7dfd3] bg-[#f1f5ed] p-6 sm:p-7">
               <span className="font-mono text-xs text-[#4e8585]">0{index + 1}</span>
               <Plane size={21} className="absolute right-6 top-6 text-[#4e8585] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-              <h2 className="mt-16 font-serif text-2xl font-bold leading-tight">{airport}</h2>
+              <h2 className="mt-10 font-serif text-2xl font-bold leading-tight">{airport}</h2>
             </div>
           ))}
         </div>
       </section>
       <section className="bg-[#e6eee5]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1fr_1fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-16">
           <SectionHeading eyebrow="What to include" title="A few flight details make the trip clearer." body="Sharing these details helps us understand the airport transportation you need." />
           <div className="space-y-3">
             {["Airline name", "Flight number", "Airport arrival time"].map((item) => <div key={item} className="flex items-center gap-4 rounded-2xl border border-[#c8d7cb] bg-[#fbf6e9] p-4"><span className="grid h-9 w-9 place-items-center rounded-full bg-[#f8d34e] font-mono text-xs text-[#172536]"><Check size={15} /></span><span className="font-semibold">{item}</span></div>)}
@@ -563,11 +563,11 @@ function AirportPage() {
           </div>
         </div>
       </section>
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 pt-10 pb-6 sm:px-6 md:pt-14 md:pb-8 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8 lg:pt-16">
         <ArchivePhoto src="/images/archive/impala.jpg" alt="Black sedan taxi with ADR Taxi markings." caption="Original vehicle photo from the company archive" imageClassName="aspect-[2.2]" />
         <SectionHeading eyebrow="A note from the archive" title="The photos stay honest." body="The original vehicle images are included for your review. No vehicle details, dates, or historical claims are added beyond what the photographs show." />
       </section>
-      <section className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-7 px-4 py-16 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <section className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-10 sm:px-6 md:flex-row md:py-12 md:items-center lg:px-8">
         <div><p className="font-mono text-[.62rem] uppercase tracking-[.18em] text-[#4e8585]">Ready when you are</p><h2 className="mt-2 font-serif text-3xl font-bold">Share your airport trip.</h2></div>
         <ButtonLink href={`tel:${PHONE}`} variant="yellow">Call {PHONE} <Phone size={16} /></ButtonLink>
       </section>
@@ -816,24 +816,24 @@ function ContactPage() {
           <p className="mt-2 text-sm leading-6 text-[#31505c]">Serving the Lowcountry and Sea Islands.</p>
         </div>
       </PageIntro>
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-16">
         <div className="grid gap-5 md:grid-cols-2">
           <a href={`tel:${PHONE}`} data-testid="link-contact-phone" className="ink-card group rounded-[1.8rem] bg-[#172536] p-7 text-[#fbf6e9] transition-transform hover:-translate-y-1 sm:p-10">
             <Phone className="text-[#f8d34e]" size={25} />
-            <p className="mt-16 font-mono text-[.62rem] uppercase tracking-[.18em] text-[#8eaba3]">Call</p>
+            <p className="mt-10 font-mono text-[.62rem] uppercase tracking-[.18em] text-[#8eaba3]">Call</p>
             <p className="mt-2 break-all font-serif text-3xl font-bold sm:text-4xl">{PHONE}</p>
             <ArrowUpRight size={19} className="mt-7 text-[#f8d34e] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
           <a href={`mailto:${EMAIL}`} data-testid="link-contact-email" className="group rounded-[1.8rem] border border-[#d7dfd3] bg-[#e6eee5] p-7 transition-transform hover:-translate-y-1 sm:p-10">
             <Mail className="text-[#4e8585]" size={25} />
-            <p className="mt-16 font-mono text-[.62rem] uppercase tracking-[.18em] text-[#4e8585]">Email</p>
+            <p className="mt-10 font-mono text-[.62rem] uppercase tracking-[.18em] text-[#4e8585]">Email</p>
             <p className="mt-2 break-all font-serif text-[clamp(1.125rem,5vw,1.5rem)] font-bold sm:text-3xl">{EMAIL}</p>
             <ArrowUpRight size={19} className="mt-7 text-[#4e8585] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
         </div>
       </section>
       <section className="bg-[#e6eee5]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[.8fr_1.2fr] lg:px-8 lg:py-16">
           <SectionHeading eyebrow="Where we reference service" title="Lowcountry towns and Sea Islands." body="If you’re not sure whether your pickup or destination fits, contact us with the exact locations." />
           <div className="grid gap-8 sm:grid-cols-2">
             <div><p className="font-mono text-[.61rem] uppercase tracking-[.18em] text-[#4e8585]">Lowcountry</p><ul className="mt-4 space-y-3">{serviceAreas.map((area) => <li key={area} className="flex items-center gap-2 text-sm text-[#31505c]"><Check size={15} className="text-[#4e8585]" />{area}</li>)}</ul></div>
@@ -841,7 +841,7 @@ function ContactPage() {
           </div>
         </div>
       </section>
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:py-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8 lg:py-16">
         <SectionHeading eyebrow="A familiar ride" title="Keep the conversation simple." body="Call or email with the exact locations and timing for your trip. The original company vehicle photo below is included for client review." />
         <ArchivePhoto src="/images/archive/crownvic.jpg" alt="Green taxi marked Happy Taxi Cab Co. parked beneath trees." caption="Original vehicle photo from the company archive" imageClassName="aspect-[1.9]" />
       </section>
