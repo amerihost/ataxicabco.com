@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import { Link, Redirect, Route, Switch, Router as WouterRouter, useLocation } from "wouter";
+import { LegalContent, privacySections, termsSections } from "./pages/LegalContent";
 
 const PHONE = "843-575-5000";
 const EMAIL = "happycabco@gmail.com";
@@ -271,6 +272,8 @@ function Footer() {
             <Link href="/" data-testid="link-footer-home" className="hover:text-[#f8d34e]">Home</Link>
             <Link href="/airport/" data-testid="link-footer-airport" className="hover:text-[#f8d34e]">Airport service</Link>
             <Link href="/contact/" data-testid="link-footer-contact" className="hover:text-[#f8d34e]">Contact</Link>
+            <Link href="/privacy-policy/" data-testid="link-footer-privacy-policy" className="hover:text-[#f8d34e]">Privacy Policy</Link>
+            <Link href="/terms-of-use/" data-testid="link-footer-terms-of-use" className="hover:text-[#f8d34e]">Terms of Use</Link>
           </div>
         </div>
         <div>
@@ -849,6 +852,36 @@ function ContactPage() {
   );
 }
 
+function PrivacyPolicyPage() {
+  usePageMeta(
+    "Privacy Policy | A Happy Taxi Cab Co.",
+    "How A Happy Taxi Cab Co. handles information on this website, including its inactive online form and automatic hosting and security processing.",
+    "/privacy-policy/",
+  );
+
+  return (
+    <>
+      <PageIntro eyebrow="Website information" title="Privacy Policy" body="How information is handled when you visit ataxicabco.com." />
+      <LegalContent sections={privacySections} />
+    </>
+  );
+}
+
+function TermsOfUsePage() {
+  usePageMeta(
+    "Terms of Use | A Happy Taxi Cab Co.",
+    "Terms for using the A Happy Taxi Cab Co. website, including information accuracy, external links, content rights, and limits on liability.",
+    "/terms-of-use/",
+  );
+
+  return (
+    <>
+      <PageIntro eyebrow="Website information" title="Terms of Use" body="Please read these terms when using ataxicabco.com." />
+      <LegalContent sections={termsSections} />
+    </>
+  );
+}
+
 function NotFound() {
   usePageMeta(
     "Page Not Found | A Happy Taxi Cab Co.",
@@ -893,6 +926,10 @@ function Router() {
         <Route path="/reservations/" component={ReservationsRedirect} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/contact/" component={ContactPage} />
+        <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+        <Route path="/privacy-policy/" component={PrivacyPolicyPage} />
+        <Route path="/terms-of-use" component={TermsOfUsePage} />
+        <Route path="/terms-of-use/" component={TermsOfUsePage} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
